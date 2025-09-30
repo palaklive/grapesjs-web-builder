@@ -1,7 +1,15 @@
-import { useEditor } from "@grapesjs/react";
+import { WithEditor, useEditor } from "@grapesjs/react";
 import "./EditorControls.css";
 
 export function EditorControls() {
+  return (
+    <WithEditor>
+      <EditorControlsContent />
+    </WithEditor>
+  );
+}
+
+function EditorControlsContent() {
   const editor = useEditor();
 
   const handlePreview = () => {
