@@ -1,27 +1,19 @@
 import type { BlockProperties } from "grapesjs";
 
 export const blockConfigurations: BlockProperties[] = [
-  {
-    id: 'section', // id is mandatory
-    label: 'Section', // You can use HTML/SVG inside labels
-    attributes: { class: 'gjs-block-section' },
-    content: `<section>
-      <h1>This is a simple title</h1>
-      <div>This is just a Lorem text: Lorem ipsum dolor sit amet</div>
-    </section>`,
-  },
+  // Basic Blocks
   {
     id: "text",
     label: "Text",
     category: "Basic",
-    content: { type: "email-text" },
+    content: `<div style="padding: 10px; font-size: 14px; line-height: 1.6;">Insert your text here</div>`,
     attributes: { class: "fa fa-text" },
   },
   {
     id: "heading",
     label: "Heading",
     category: "Basic",
-    content: { type: "email-heading" },
+    content: `<h2 style="padding: 10px; margin: 0; font-weight: bold;">Heading Text</h2>`,
     attributes: { class: "fa fa-header" },
   },
   {
@@ -37,24 +29,28 @@ export const blockConfigurations: BlockProperties[] = [
     attributes: { class: "fa fa-image" },
   },
   {
+    id: "button",
+    label: "Button",
+    category: "Basic",
+    content: `<button style="padding: 12px 24px; background-color: #007bff; color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer;">Click Me</button>`,
+    attributes: { class: "fa fa-hand-pointer" },
+  },
+  
+  // Layout Blocks
+  {
     id: "section",
     label: "Section",
     category: "Layout",
-    content: { type: "email-section" },
+    content: `<section style="padding: 40px 20px; background-color: #f5f5f5; text-align: center;">
+      <div style="max-width: 600px; margin: 0 auto;">Section content goes here</div>
+    </section>`,
     attributes: { class: "fa fa-square" },
   },
   {
     id: "two-columns",
     label: "2 Columns",
     category: "Layout",
-    content: { type: "email-columns" },
+    content: { type: "two-columns" },
     attributes: { class: "fa fa-columns" },
-  },
-  {
-    id: "button",
-    label: "Button",
-    category: "Basic",
-    content: { type: "email-button" },
-    attributes: { class: "fa fa-hand-pointer" },
   },
 ];
