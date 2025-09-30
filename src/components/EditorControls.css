@@ -1,0 +1,31 @@
+.editor-controls {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background-color: #2c2c2c;
+  border-bottom: 1px solid #444;
+}
+
+.control-btn {
+  padding: 8px 16px;
+  background-color: #444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.control-btn:hover {
+  background-color: #555;
+}
+
+.control-btn:active {
+  background-color: #333;
+}
+
+.control-btn.danger:hover {
+  background-color: #dc3545;
+}

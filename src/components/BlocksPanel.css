@@ -1,0 +1,27 @@
+.editor-sidebar {
+  width: 250px;
+  overflow: auto;
+  border-right: 1px solid #ddd;
+}
+
+.blocks-panel {
+  padding: 10px;
+}
+
+.blocks-panel-title {
+  margin: 0 0 15px 0;
+  font-size: 16px;
+}
+
+.block-item {
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: grab;
+}
+
+.block-label {
+  font-weight: 500;
+}
