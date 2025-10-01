@@ -4,15 +4,23 @@ import { useEffect, useRef, useState } from "react";
 import { applyHtmlDocumentToEditor } from "@/utils/htmlSync";
 import "./CodeEditor.css";
 
-export function CodeEditor() {
+interface CodeEditorProps {
+  onValidateClick?: () => void;
+}
+
+export function CodeEditor({ onValidateClick }: CodeEditorProps) {
   return (
     <WithEditor>
-      <CodeEditorContent />
+      <CodeEditorContent onValidateClick={onValidateClick} />
     </WithEditor>
   );
 }
 
-function CodeEditorContent() {
+interface CodeEditorContentProps {
+  onValidateClick?: () => void;
+}
+
+function CodeEditorContent({ onValidateClick }: CodeEditorContentProps) {
   const editor = useEditor();
   const { viewMode, htmlCode, setHtmlCode } = useView();
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -76,6 +84,19 @@ function CodeEditorContent() {
     <div className="code-editor-container">
       <div className="code-editor-header">
         <span className="code-editor-title">HTML Code Editor</span>
+        {onValidateClick && (
+          <button
+            className="code-editor-validate-btn"
+            onClick={onValidateClick}
+            title="Validate Email Template"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M8 1L10.5 5.5L15.5 6.5L12 10L13 15L8 12.5L3 15L4 10L0.5 6.5L5.5 5.5L8 1Z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+              <path d="M6 8L7.5 9.5L10 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            Validate
+          </button>
+        )}
       </div>
       <textarea
         ref={textareaRef}

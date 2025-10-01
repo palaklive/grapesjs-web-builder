@@ -26,6 +26,26 @@
   gap: var(--space-sm);
 }
 
+.code-editor-validate-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 6px 12px;
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.code-editor-validate-btn:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
 .code-editor-textarea {
   flex: 1;
   padding: var(--space-lg);

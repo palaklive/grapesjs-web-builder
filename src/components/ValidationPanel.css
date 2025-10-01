@@ -1,0 +1,319 @@
+.validation-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100vh;
+  background: var(--color-surface);
+  border-left: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-lg);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-sans);
+}
+
+.validation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-lg);
+  border-bottom: 1px solid var(--color-border-light);
+  background: var(--color-bg-secondary);
+}
+
+.validation-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.validation-actions {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.validation-refresh-btn {
+  padding: 8px 16px;
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.validation-refresh-btn:hover:not(:disabled) {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
+.validation-refresh-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.validation-close-btn {
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.validation-close-btn:hover {
+  background: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+}
+
+.validation-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-lg);
+}
+
+.validation-summary {
+  margin-bottom: var(--space-lg);
+}
+
+.validation-status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.validation-status.valid {
+  background: var(--color-success-light);
+  color: var(--color-success-dark);
+  border: 1px solid var(--color-success);
+}
+
+.validation-status.invalid {
+  background: var(--color-danger-light);
+  color: var(--color-danger-dark);
+  border: 1px solid var(--color-danger);
+}
+
+.validation-details {
+  margin-top: var(--space-lg);
+}
+
+.validation-details-title {
+  margin: 0 0 var(--space-md) 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.validation-section {
+  margin-bottom: var(--space-lg);
+}
+
+.validation-section-title {
+  margin: 0 0 var(--space-sm) 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.validation-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.validation-item {
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.validation-item:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.validation-item-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.validation-item-header:hover {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.validation-item-icon {
+  font-size: 16px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.validation-item-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.validation-item-title {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+}
+
+.validation-item-message {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.validation-item-toggle {
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.validation-item-details {
+  padding: 0 var(--space-md) var(--space-md) var(--space-md);
+  border-top: 1px solid var(--color-border-light);
+  background: rgba(0, 0, 0, 0.01);
+}
+
+.validation-detail-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xs);
+  font-size: 12px;
+}
+
+.validation-detail-row:last-child {
+  margin-bottom: 0;
+}
+
+.validation-detail-row strong {
+  color: var(--color-text-secondary);
+  min-width: 80px;
+}
+
+.validation-value {
+  background: var(--color-bg-secondary);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-text-primary);
+}
+
+.validation-severity {
+  font-weight: 600;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.validation-success {
+  text-align: center;
+  padding: var(--space-xl);
+}
+
+.validation-success-icon {
+  font-size: 48px;
+  margin-bottom: var(--space-md);
+}
+
+.validation-success p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+}
+
+.validation-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+  text-align: center;
+}
+
+.validation-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--color-border-light);
+  border-top: 3px solid var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: var(--space-md);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.validation-loading p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+}
+
+/* Color variables for validation states */
+:root {
+  --color-success: #10b981;
+  --color-success-light: #d1fae5;
+  --color-success-dark: #065f46;
+  --color-danger: #ef4444;
+  --color-danger-light: #fee2e2;
+  --color-danger-dark: #991b1b;
+  --color-warning: #f59e0b;
+  --color-warning-light: #fef3c7;
+  --color-warning-dark: #92400e;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .validation-panel {
+    width: 100vw;
+    right: 0;
+  }
+}
+
+/* Scrollbar styling */
+.validation-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.validation-content::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+.validation-content::-webkit-scrollbar-thumb {
+  background: var(--color-border-medium);
+  border-radius: 3px;
+}
+
+.validation-content::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-dark);
+}

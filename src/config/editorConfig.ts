@@ -1,10 +1,36 @@
 import type { EditorConfig } from "grapesjs";
+import { designTokens } from "./designTokens";
 
 export const editorConfig: EditorConfig = {
   height: "100vh",
   storageManager: false,
   components: "<h1>Welcome to template builder</h1>",
   canvas: {
+    // Improve toolbar positioning to prevent it from going outside canvas
+    scripts: [
+      `
+      // Fix canvas toolbar positioning and load Font Awesome
+      (function() {
+        // Add Font Awesome for toolbar icons
+        const fontAwesome = document.createElement('link');
+        fontAwesome.rel = 'stylesheet';
+        fontAwesome.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+        document.head.appendChild(fontAwesome);
+
+        // Fix toolbar styling
+        const style = document.createElement('style');
+        style.textContent = \`
+          .gjs-toolbar {
+            min-width: auto !important;
+          }
+          .gjs-toolbar-item {
+            min-width: 32px !important;
+          }
+        \`;
+        document.head.appendChild(style);
+      })();
+      `
+    ],
     styles: [
       `
         /* Base styles for canvas */
@@ -139,41 +165,219 @@ export const editorConfig: EditorConfig = {
         name: "Typography",
         open: true,
         properties: [
-          "font-family",
-          "font-size",
-          "font-weight",
-          "letter-spacing",
-          "color",
-          "line-height",
-          "text-align",
+          {
+            name: "Font Family",
+            property: "font-family",
+            type: "select",
+            defaults: designTokens.typography.fontFamilies[0].value,
+            options: designTokens.typography.fontFamilies.map(f => ({ 
+              id: f.value, 
+              label: f.name 
+            })),
+          },
+          {
+            name: "Font Size",
+            property: "font-size",
+            type: "select",
+            defaults: "16px",
+            options: designTokens.typography.fontSizes.map(s => ({ 
+              id: s.value, 
+              label: s.name 
+            })),
+          },
+          {
+            name: "Font Weight",
+            property: "font-weight",
+            type: "select",
+            defaults: "400",
+            options: designTokens.typography.fontWeights.map(w => ({ 
+              id: w.value, 
+              label: w.name 
+            })),
+          },
+          {
+            name: "Line Height",
+            property: "line-height",
+            type: "select",
+            defaults: "1.5",
+            options: designTokens.typography.lineHeights.map(l => ({ 
+              id: l.value, 
+              label: l.name 
+            })),
+          },
+          {
+            name: "Text Color",
+            property: "color",
+            type: "color",
+          },
+          {
+            name: "Text Align",
+            property: "text-align",
+            type: "radio",
+            defaults: "left",
+            options: [
+              { id: "left", label: "Left" },
+              { id: "center", label: "Center" },
+              { id: "right", label: "Right" },
+              { id: "justify", label: "Justify" },
+            ],
+          },
+          {
+            name: "Letter Spacing",
+            property: "letter-spacing",
+            type: "integer",
+            units: ["px", "em"],
+            defaults: "0",
+          },
         ],
       },
       {
         name: "Dimension",
         open: false,
         properties: [
-          "width",
-          "height",
-          "max-width",
-          "min-height",
-          "margin",
-          "padding",
+          {
+            name: "Width",
+            property: "width",
+            type: "integer",
+            units: ["px", "%", "auto", "vw"],
+            defaults: "auto",
+          },
+          {
+            name: "Height",
+            property: "height",
+            type: "integer",
+            units: ["px", "%", "auto", "vh"],
+            defaults: "auto",
+          },
+          {
+            name: "Max Width",
+            property: "max-width",
+            type: "integer",
+            units: ["px", "%", "none"],
+            defaults: "none",
+          },
+          {
+            name: "Min Height",
+            property: "min-height",
+            type: "integer",
+            units: ["px", "%", "auto"],
+            defaults: "auto",
+          },
         ],
       },
       {
-        name: "Background",
+        name: "Spacing",
         open: false,
-        properties: ["background-color", "background"],
+        properties: [
+          {
+            name: "Padding",
+            property: "padding",
+            type: "composite",
+            properties: [
+              { name: "Top", property: "padding-top", type: "integer", units: ["px"], defaults: "0" },
+              { name: "Right", property: "padding-right", type: "integer", units: ["px"], defaults: "0" },
+              { name: "Bottom", property: "padding-bottom", type: "integer", units: ["px"], defaults: "0" },
+              { name: "Left", property: "padding-left", type: "integer", units: ["px"], defaults: "0" },
+            ],
+          },
+          {
+            name: "Margin",
+            property: "margin",
+            type: "composite",
+            properties: [
+              { name: "Top", property: "margin-top", type: "integer", units: ["px", "auto"], defaults: "0" },
+              { name: "Right", property: "margin-right", type: "integer", units: ["px", "auto"], defaults: "0" },
+              { name: "Bottom", property: "margin-bottom", type: "integer", units: ["px", "auto"], defaults: "0" },
+              { name: "Left", property: "margin-left", type: "integer", units: ["px", "auto"], defaults: "0" },
+            ],
+          },
+        ],
+      },
+      {
+        name: "Colors",
+        open: false,
+        properties: [
+          {
+            name: "Background Color",
+            property: "background-color",
+            type: "color",
+          },
+          {
+            name: "Text Color",
+            property: "color",
+            type: "color",
+          },
+          {
+            name: "Border Color",
+            property: "border-color",
+            type: "color",
+          },
+        ],
       },
       {
         name: "Border",
         open: false,
         properties: [
-          "border-radius",
-          "border",
-          "border-width",
-          "border-style",
-          "border-color",
+          {
+            name: "Border Radius",
+            property: "border-radius",
+            type: "select",
+            defaults: "0",
+            options: designTokens.borders.radius.map(r => ({ 
+              id: r.value, 
+              label: r.name 
+            })),
+          },
+          {
+            name: "Border Width",
+            property: "border-width",
+            type: "select",
+            defaults: "0",
+            options: designTokens.borders.widths.map(w => ({ 
+              id: w.value, 
+              label: w.name 
+            })),
+          },
+          {
+            name: "Border Style",
+            property: "border-style",
+            type: "select",
+            defaults: "solid",
+            options: designTokens.borders.styles.map(s => ({ 
+              id: s.value, 
+              label: s.name 
+            })),
+          },
+          {
+            name: "Border Color",
+            property: "border-color",
+            type: "color",
+          },
+        ],
+      },
+      {
+        name: "Effects",
+        open: false,
+        properties: [
+          {
+            name: "Box Shadow",
+            property: "box-shadow",
+            type: "select",
+            defaults: "none",
+            options: designTokens.shadows.options.map(s => ({ 
+              id: s.value, 
+              label: s.name 
+            })),
+          },
+          {
+            name: "Opacity",
+            property: "opacity",
+            type: "slider",
+            defaults: "1",
+            min: 0,
+            max: 1,
+            step: 0.01,
+          },
         ],
       },
     ],

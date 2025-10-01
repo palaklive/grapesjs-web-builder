@@ -1,0 +1,58 @@
+.resizable-panel {
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+}
+
+.resizable-panel-left {
+  flex-direction: row;
+}
+
+.resizable-panel-right {
+  flex-direction: row-reverse;
+}
+
+.resizable-panel-content {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.resize-handle {
+  position: relative;
+  width: 8px;
+  cursor: ew-resize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  user-select: none;
+  z-index: 10;
+}
+
+.resize-handle:hover .resize-handle-bar,
+.resize-handle:active .resize-handle-bar {
+  background: var(--color-primary);
+  opacity: 1;
+}
+
+.resize-handle-bar {
+  width: 2px;
+  height: 40px;
+  background: var(--color-border-medium);
+  border-radius: 2px;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.resize-handle:hover .resize-handle-bar {
+  opacity: 0.6;
+}
+
+/* Show handle bar when resizing */
+body:has(.resize-handle:active) {
+  cursor: ew-resize !important;
+  user-select: none !important;
+}
+

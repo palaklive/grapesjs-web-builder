@@ -7,15 +7,23 @@ import htmlParser from "prettier/plugins/html";
 import { getEditorHtmlDocument, applyHtmlDocumentToEditor } from "@/utils/htmlSync";
 import "./EditorControls.css";
 
-export function EditorControls() {
+interface EditorControlsProps {
+  onValidateClick?: () => void;
+}
+
+export function EditorControls({ onValidateClick }: EditorControlsProps) {
   return (
     <WithEditor>
-      <EditorControlsContent />
+      <EditorControlsContent onValidateClick={onValidateClick} />
     </WithEditor>
   );
 }
 
-function EditorControlsContent() {
+interface EditorControlsContentProps {
+  onValidateClick?: () => void;
+}
+
+function EditorControlsContent({ onValidateClick }: EditorControlsContentProps) {
   const editor = useEditor();
   const { viewMode, setViewMode, htmlCode, setHtmlCode } = useView();
   const [copied, setCopied] = useState(false);
@@ -157,6 +165,20 @@ function EditorControlsContent() {
               Copy
             </>
           )}
+        </button>
+      )}
+
+      {onValidateClick && (
+        <button
+          className="control-btn primary"
+          onClick={onValidateClick}
+          title="Validate Email Template"
+        >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M8 1L10.5 5.5L15.5 6.5L12 10L13 15L8 12.5L3 15L4 10L0.5 6.5L5.5 5.5L8 1Z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+            <path d="M6 8L7.5 9.5L10 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          Validate
         </button>
       )}
       
