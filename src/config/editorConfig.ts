@@ -6,31 +6,7 @@ export const editorConfig: EditorConfig = {
   storageManager: false,
   components: "<h1>Welcome to template builder</h1>",
   canvas: {
-    // Improve toolbar positioning to prevent it from going outside canvas
-    scripts: [
-      `
-      // Fix canvas toolbar positioning and load Font Awesome
-      (function() {
-        // Add Font Awesome for toolbar icons
-        const fontAwesome = document.createElement('link');
-        fontAwesome.rel = 'stylesheet';
-        fontAwesome.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
-        document.head.appendChild(fontAwesome);
-
-        // Fix toolbar styling
-        const style = document.createElement('style');
-        style.textContent = \`
-          .gjs-toolbar {
-            min-width: auto !important;
-          }
-          .gjs-toolbar-item {
-            min-width: 32px !important;
-          }
-        \`;
-        document.head.appendChild(style);
-      })();
-      `
-    ],
+    // Canvas configuration
     styles: [
       `
         /* Base styles for canvas */

@@ -7,6 +7,15 @@
   box-sizing: border-box;
 }
 
+/* GrapesJS Toolbar Fixes */
+.gjs-toolbar {
+  min-width: auto !important;
+}
+
+.gjs-toolbar-item {
+  min-width: 32px !important;
+}
+
 :root {
   /* Modern Color Palette - Vibrant yet balanced */
   --color-primary: #6366f1;
