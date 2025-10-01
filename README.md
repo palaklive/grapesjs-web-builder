@@ -1,14 +1,15 @@
 # GrapesJS Email Builder
 
-A modern, drag-and-drop email template builder built with React, TypeScript, and GrapesJS. This application provides an intuitive visual interface for creating responsive email templates without writing code, featuring a beautiful dark-themed UI with enhanced user experience.
+A modern, drag-and-drop email template builder built with React, TypeScript, and GrapesJS. This application provides an intuitive visual interface for creating responsive email templates with both visual canvas and live code editor modes, featuring bidirectional sync, auto-prettified HTML, and a beautiful dark-themed UI with enhanced user experience.
 
 ## ✨ Features
 
 ### Core Functionality
 - **Visual Drag-and-Drop Interface**: Easily build email templates by dragging and dropping pre-built blocks with icon-based design
 - **Custom Email Components**: Pre-configured components optimized for email compatibility
-- **HTML Preview Modal**: View and copy your complete HTML code with inline styles in a beautiful modal
-- **Real-time Editing**: Edit content directly in the canvas with instant visual feedback
+- **Canvas ↔ Code Toggle**: Seamlessly switch between visual canvas and live HTML code editor with bidirectional sync
+- **Real-time Editing**: Edit content directly in the canvas OR code editor with instant visual feedback
+- **Prettified HTML Code**: Automatically formatted HTML with syntax highlighting for better readability
 - **Customizable Properties**: Modify colors, padding, fonts, and other properties through an intuitive right panel
 - **Responsive Layout**: Built-in support for multi-column layouts
 
@@ -20,7 +21,10 @@ A modern, drag-and-drop email template builder built with React, TypeScript, and
   - **Styles Panel**: Comprehensive styling controls with organized sections
   - **Properties Panel**: Component-specific settings and attributes
 - **Enhanced Visual Feedback**: Hover effects, smooth transitions, and clear active states
-- **Copy to Clipboard**: One-click HTML code copying with visual confirmation
+- **Live Code Editor**: Full-featured HTML code editor with:
+  - Auto-prettification with proper indentation
+  - Real-time bidirectional sync (Canvas ↔ Code)
+  - Copy to clipboard functionality
 
 ## 🛠️ Tech Stack
 
@@ -28,6 +32,7 @@ A modern, drag-and-drop email template builder built with React, TypeScript, and
 - **TypeScript** - Type safety and better developer experience
 - **GrapesJS** - Web Builder Framework
 - **@grapesjs/react** - Official React wrapper for GrapesJS
+- **Prettier** - Code formatter for HTML beautification
 - **Vite** - Fast build tool and dev server
 - **pnpm** - Fast, disk space efficient package manager
 
@@ -66,12 +71,16 @@ email-builder/
 │   ├── components/              # React components
 │   │   ├── BlocksPanel.tsx      # Icon-based drag-and-drop blocks sidebar
 │   │   ├── BlocksPanel.css      # Blocks panel styling
-│   │   ├── EditorControls.tsx   # Toolbar with preview HTML & clear actions
+│   │   ├── CodeEditor.tsx       # Live HTML code editor with sync
+│   │   ├── CodeEditor.css       # Code editor styling
+│   │   ├── EditorControls.tsx   # Toolbar with canvas/code toggle & actions
 │   │   ├── EditorControls.css   # Controls styling
 │   │   ├── EditorLayout.tsx     # Main editor layout structure
 │   │   ├── EditorLayout.css     # Layout styling
 │   │   ├── RightPanel.tsx       # Layers, Styles, and Properties panels
 │   │   └── RightPanel.css       # Right panel styling
+│   ├── contexts/                # React contexts
+│   │   └── ViewContext.tsx      # View mode state management (canvas/code)
 │   ├── config/                  # Configuration files
 │   │   ├── blocks.ts            # Block definitions with categories
 │   │   ├── components.ts        # Custom GrapesJS component types
@@ -153,14 +162,24 @@ Three-tab interface for complete control:
    - Adjust spacing, fonts, borders, and more
    - Add custom selectors and CSS states (hover, active)
 
-### Preview & Export
+### Code Editor & Export
 
-7. **Preview HTML**: Click the "Preview HTML" button to:
-   - View complete HTML code with inline styles
-   - Copy to clipboard with one click
-   - See confirmation when copied successfully
+7. **Toggle Between Views**: Click the "Code" / "Canvas" button to switch between:
+   - **Canvas View**: Visual drag-and-drop editor for building templates
+   - **Code View**: Live HTML editor with prettified code
 
-8. **Clear Canvas**: Use the "Clear" button to start over (includes confirmation prompt)
+8. **Edit in Code View**:
+   - View automatically formatted, beautified HTML code
+   - Edit the code directly in the editor
+   - Watch the canvas update automatically as you type
+   - Copy code to clipboard with one click
+
+9. **Bidirectional Sync**:
+   - Changes in Canvas automatically update the Code view
+   - Code edits stream back to the Canvas in real time
+   - Code is always prettified for better readability
+
+10. **Clear Canvas**: Use the "Clear" button to start over (includes confirmation prompt)
 
 ## ⚙️ Customization
 
@@ -274,13 +293,16 @@ This project is private and not licensed for public use.
 ## 🐛 Known Issues
 
 - Storage manager is currently disabled (templates are not persisted between sessions)
-- No download option - HTML code must be copied manually from the preview modal
+- No download option - HTML code must be copied manually from the code editor
 
 ## ✅ Recent Improvements
 
 - ✨ Modern dark-themed UI with gradients and smooth animations
 - 🎨 Icon-based block design with visual categories
-- 📋 HTML preview modal with copy-to-clipboard functionality
+- 🔄 **Canvas ↔ Code toggle with bidirectional sync**
+- 💻 **Live HTML code editor with auto-prettification**
+- 🔄 **Real-time code-to-canvas sync while typing**
+- 📋 **One-click copy to clipboard from code view**
 - 🎯 Enhanced right panel with Layers, Styles, and Properties tabs
 - 💫 Improved hover states and visual feedback throughout
 - 🖱️ Better drag-and-drop experience with visual indicators
@@ -288,7 +310,8 @@ This project is private and not licensed for public use.
 ## 🔮 Future Enhancements
 
 - [ ] Add template storage and management (localStorage/backend)
-- [ ] Download HTML file option in preview modal
+- [ ] Download HTML file option from code editor
+- [ ] Syntax highlighting for code editor
 - [ ] More pre-built email blocks (footer, header, social media, CTA sections)
 - [ ] Template gallery with starter templates
 - [ ] Undo/Redo functionality
@@ -296,7 +319,7 @@ This project is private and not licensed for public use.
 - [ ] Integration with email service providers (SendGrid, Mailchimp, etc.)
 - [ ] Component library expansion with email-specific components
 - [ ] Dark/Light theme toggle
-- [ ] Keyboard shortcuts for common actions
+- [ ] More keyboard shortcuts for common actions
 
 ## 📚 Resources
 

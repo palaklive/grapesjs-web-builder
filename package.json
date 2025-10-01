@@ -12,6 +12,7 @@
   "dependencies": {
     "@grapesjs/react": "^2.0.0",
     "grapesjs": "^0.22.13",
+    "prettier": "^3.6.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },

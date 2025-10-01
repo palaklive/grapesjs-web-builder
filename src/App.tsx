@@ -4,6 +4,7 @@ import { componentDefinitions } from "@/config/components";
 import { editorConfig } from "@/config/editorConfig";
 import { registerBlocks } from "@/utils/blockRegistry";
 import { registerComponents } from "@/utils/componentRegistry";
+import { ViewProvider } from "@/contexts/ViewContext";
 import GjsEditor from "@grapesjs/react";
 import grapesjs, { type Editor } from "grapesjs";
 
@@ -22,7 +23,9 @@ export default function CustomEditor() {
       onEditor={handleEditorLoad}
       options={editorConfig}
     >
-      <EditorLayout />
+      <ViewProvider>
+        <EditorLayout />
+      </ViewProvider>
     </GjsEditor>
   );
 }
