@@ -496,8 +496,8 @@ iframe .gjs-selected {
 
 /* Button elements in canvas */
 .gjs-button,
-button.email-button,
-a.email-button {
+button.web-button,
+a.web-button {
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%) !important;
   color: var(--color-text-inverse) !important;
   border: none !important;
@@ -516,16 +516,16 @@ a.email-button {
 }
 
 .gjs-button:hover,
-button.email-button:hover,
-a.email-button:hover {
+button.web-button:hover,
+a.web-button:hover {
   background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%) !important;
   transform: translateY(-2px) !important;
   box-shadow: var(--shadow-md), var(--shadow-colored) !important;
 }
 
 .gjs-button:active,
-button.email-button:active,
-a.email-button:active {
+button.web-button:active,
+a.web-button:active {
   transform: translateY(0) !important;
   box-shadow: var(--shadow-sm) !important;
 }

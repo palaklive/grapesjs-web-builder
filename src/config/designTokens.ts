@@ -1,4 +1,4 @@
-// Design tokens for consistent styling across the email builder
+// Design tokens for consistent styling across the web builder
 export const designTokens = {
   colors: {
     primary: {

@@ -172,7 +172,7 @@ function EditorControlsContent({ onValidateClick }: EditorControlsContentProps) 
         <button
           className="control-btn primary"
           onClick={onValidateClick}
-          title="Validate Email Template"
+          title="Validate Web Page"
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M8 1L10.5 5.5L15.5 6.5L12 10L13 15L8 12.5L3 15L4 10L0.5 6.5L5.5 5.5L8 1Z" stroke="currentColor" strokeWidth="1.5" fill="none"/>

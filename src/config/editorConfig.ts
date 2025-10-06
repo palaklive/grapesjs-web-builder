@@ -82,8 +82,8 @@ export const editorConfig: EditorConfig = {
           box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
         }
         
-        /* Email button class (with same styling) */
-        .email-button {
+        /* Web button class (with same styling) */
+        .web-button {
           font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
           padding: 12px 24px;
           background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
@@ -102,13 +102,13 @@ export const editorConfig: EditorConfig = {
           line-height: 1.5;
         }
         
-        .email-button:hover {
+        .web-button:hover {
           background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
           transform: translateY(-2px);
           box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(99, 102, 241, 0.15);
         }
         
-        .email-button:active {
+        .web-button:active {
           transform: translateY(0);
           box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
         }

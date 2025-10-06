@@ -2,7 +2,7 @@
 
 ## Overview
 
-This guide explains how style property filtering works in the email builder and what to expect when styling different elements.
+This guide explains how style property filtering works in the web builder and what to expect when styling different elements.
 
 ---
 

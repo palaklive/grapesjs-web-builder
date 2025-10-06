@@ -1,10 +1,10 @@
 # Panels & Buttons Guide
 
-This guide describes the custom panels and toolbar functionality in the Email Builder.
+This guide describes the custom panels and toolbar functionality in the Web Builder.
 
 ## Overview
 
-The Email Builder uses a custom PanelsManager configuration with SVG icons and telemetry tracking for all core actions.
+The Web Builder uses a custom PanelsManager configuration with SVG icons and telemetry tracking for all core actions.
 
 ## Toolbar Buttons
 
@@ -19,9 +19,9 @@ The Email Builder uses a custom PanelsManager configuration with SVG icons and t
   - Useful for testing across different browsers
   
 - **Export HTML**: Downloads complete HTML file
-  - File name: `email-template-[timestamp].html`
+  - File name: `web-page-[timestamp].html`
   - Includes all CSS styles inline
-  - Ready for email service provider upload
+  - Ready for web hosting provider upload
 
 ### Utility Actions
 - **Fullscreen**: Toggle fullscreen canvas mode

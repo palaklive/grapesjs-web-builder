@@ -35,12 +35,12 @@ error-500, error-600 (Red)
 **Font Sizes**
 - xs (12px) to 5xl (48px)
 - Named scales for consistency
-- Email-safe sizes
+- Web-safe sizes
 
 **Font Weights**
 - Light (300) to Extra Bold (800)
 - Standard weight scales
-- Email client compatible
+- Web browser compatible
 
 **Line Heights**
 - Tight (1.25) to Loose (2)
@@ -59,7 +59,7 @@ error-500, error-600 (Red)
 **Border Radius**
 - None (0) to Full (9999px)
 - Small (4px) to 2XL (16px)
-- Email-safe values
+- Web-safe values
 
 **Border Width**
 - None to Extra Thick (8px)
@@ -110,7 +110,7 @@ Controls size properties:
 - Min Height (px, %, auto)
 
 **Best Practices:**
-- Use `max-width: 600px` for email containers
+- Use `max-width: 1200px` for web page containers
 - Use `%` for responsive elements
 - Use `auto` for content-based sizing
 
@@ -120,7 +120,7 @@ Composite controls for padding and margin:
 **Padding:**
 - Individual controls for Top, Right, Bottom, Left
 - Visual padding box representation
-- Px units only (email-safe)
+- Px units only (web-safe)
 
 **Margin:**
 - Individual controls for each side
@@ -280,7 +280,7 @@ pnpm test:coverage
 
 ## Best Practices
 
-### Email Compatibility
+### Web Compatibility
 1. **Use inline styles** when possible
 2. **Avoid complex CSS** (gradients work in some clients)
 3. **Test across clients** (Gmail, Outlook, Apple Mail)

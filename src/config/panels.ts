@@ -105,7 +105,7 @@ export const registerCommands = (editor: Editor) => {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Email Template</title>
+  <title>Web Page</title>
   <style>${css}</style>
 </head>
 <body>
@@ -118,7 +118,7 @@ export const registerCommands = (editor: Editor) => {
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = `email-template-${Date.now()}.html`;
+      link.download = `web-page-${Date.now()}.html`;
       link.click();
       URL.revokeObjectURL(url);
     },
@@ -134,7 +134,7 @@ export const registerCommands = (editor: Editor) => {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Preview - Email Template</title>
+  <title>Preview - Web Page</title>
   <style>${css}</style>
 </head>
 <body>

@@ -32,7 +32,7 @@ export const blockConfigurations: BlockProperties[] = [
     id: "button",
     label: "Button",
     category: "Basic",
-    content: `<button class="email-button">Click Me</button>`,
+    content: `<button class="web-button">Click Me</button>`,
     attributes: { class: "fa fa-hand-pointer" },
   },
   

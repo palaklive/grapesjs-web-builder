@@ -122,8 +122,8 @@ describe('TraitsPanel', () => {
     });
   });
 
-  describe('Email Validated Input', () => {
-    it('validates email on blur', async () => {
+  describe('Web Validated Input', () => {
+    it('validates web input on blur', async () => {
       const traits = [
         createMockTrait('trait-1', 'email-validated', 'email', 'Email Address'),
       ];
@@ -147,7 +147,7 @@ describe('TraitsPanel', () => {
       });
     });
 
-    it('accepts valid emails', async () => {
+    it('accepts valid web inputs', async () => {
       const traits = [
         createMockTrait('trait-1', 'email-validated', 'email', 'Email Address'),
       ];

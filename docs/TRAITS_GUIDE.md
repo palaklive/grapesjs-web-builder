@@ -4,7 +4,7 @@ Complete guide to the enhanced Traits Manager with custom trait types and valida
 
 ## Overview
 
-Traits are component-specific attributes that configure behavior and content. The Email Builder provides custom trait types with built-in validation and user-friendly interfaces.
+Traits are component-specific attributes that configure behavior and content. The Web Builder provides custom trait types with built-in validation and user-friendly interfaces.
 
 ## Standard Trait Types
 

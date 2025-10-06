@@ -1,12 +1,12 @@
-# GrapesJS Email Builder
+# GrapesJS Web Builder
 
-A modern, drag-and-drop email template builder built with React, TypeScript, and GrapesJS. This application provides an intuitive visual interface for creating responsive email templates with both visual canvas and live code editor modes, featuring bidirectional sync, auto-prettified HTML, and a beautiful dark-themed UI with enhanced user experience.
+A modern, drag-and-drop web page builder built with React, TypeScript, and GrapesJS. This application provides an intuitive visual interface for creating responsive web pages with both visual canvas and live code editor modes, featuring bidirectional sync, auto-prettified HTML, and a beautiful dark-themed UI with enhanced user experience.
 
 ## ✨ Features
 
 ### Core Functionality
-- **Visual Drag-and-Drop Interface**: Easily build email templates by dragging and dropping pre-built blocks with icon-based design
-- **Custom Email Components**: Pre-configured components optimized for email compatibility
+- **Visual Drag-and-Drop Interface**: Easily build web pages by dragging and dropping pre-built blocks with icon-based design
+- **Custom Web Components**: Pre-configured components optimized for web compatibility
 - **Canvas ↔ Code Toggle**: Seamlessly switch between visual canvas and live HTML code editor with bidirectional sync
 - **Real-time Editing**: Edit content directly in the canvas OR code editor with instant visual feedback
 - **Prettified HTML Code**: Automatically formatted HTML with syntax highlighting for better readability
@@ -66,7 +66,7 @@ The development server will start at `http://localhost:5173` (default Vite port)
 ## 📁 Project Structure
 
 ```
-email-builder/
+web-builder/
 ├── src/
 │   ├── components/              # React components
 │   │   ├── BlocksPanel.tsx      # Icon-based drag-and-drop blocks sidebar
@@ -107,7 +107,7 @@ email-builder/
 
 ### Layout Components
 - **Section** 📦: Container blocks with customizable background, padding, and max-width
-- **2 Columns** ⚏: Two-column layout for responsive email designs with equal-width columns
+- **2 Columns** ⚏: Two-column layout for responsive web designs with equal-width columns
 
 ## 🎛️ Editor Panels
 
@@ -142,7 +142,7 @@ Three-tab interface for complete control:
 
 ## 🎯 How to Use
 
-### Building Your Template
+### Building Your Web Page
 
 1. **Browse Blocks**: View icon-based blocks in the left sidebar, organized by category (Basic/Layout)
 2. **Add Blocks**: Drag blocks from the sidebar onto the canvas - visual feedback shows where blocks will drop
@@ -152,7 +152,7 @@ Three-tab interface for complete control:
 ### Customization & Styling
 
 5. **Use the Right Panel Tabs**:
-   - **Layers**: View and navigate your template structure in a tree view
+   - **Layers**: View and navigate your web page structure in a tree view
    - **Styles**: Apply CSS styles with organized sections (Typography, Decorations, etc.)
    - **Properties**: Edit component-specific attributes (text, href, src, etc.)
 
@@ -312,12 +312,12 @@ This project is private and not licensed for public use.
 - [ ] Add template storage and management (localStorage/backend)
 - [ ] Download HTML file option from code editor
 - [ ] Syntax highlighting for code editor
-- [ ] More pre-built email blocks (footer, header, social media, CTA sections)
+- [ ] More pre-built web blocks (footer, header, social media, CTA sections)
 - [ ] Template gallery with starter templates
 - [ ] Undo/Redo functionality
 - [ ] Mobile preview mode with device frames
-- [ ] Integration with email service providers (SendGrid, Mailchimp, etc.)
-- [ ] Component library expansion with email-specific components
+- [ ] Integration with web hosting providers (Netlify, Vercel, etc.)
+- [ ] Component library expansion with web-specific components
 - [ ] Dark/Light theme toggle
 - [ ] More keyboard shortcuts for common actions
 

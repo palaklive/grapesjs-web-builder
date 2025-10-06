@@ -103,7 +103,7 @@ export function ValidationPanel({ isVisible, onClose }: ValidationPanelProps) {
             {validationResult.isValid && (
               <div className="validation-success">
                 <div className="validation-success-icon">🎉</div>
-                <p>Your email template is ready! All validations have passed.</p>
+                <p>Your web page is ready! All validations have passed.</p>
               </div>
             )}
           </>
