@@ -21,7 +21,7 @@ export function composeFullHtml(html: string, css: string) {
 export function getEditorHtmlDocument(editor: Editor) {
   const html = editor.getHtml();
   const css = editor.getCss();
-  return composeFullHtml(html, css);
+  return composeFullHtml(html || '', css || '');
 }
 
 export function applyHtmlDocumentToEditor(editor: Editor, fullHtml: string) {

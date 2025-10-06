@@ -4,10 +4,14 @@ import { TraitsPanel } from '../RightPanel';
 import type { Editor, Component } from 'grapesjs';
 
 // Mock useEditor hook
+const mockOn = vi.fn();
+const mockOff = vi.fn();
+const mockGetSelected = vi.fn();
+
 const mockEditor = {
-  on: vi.fn(),
-  off: vi.fn(),
-  getSelected: vi.fn(),
+  on: mockOn,
+  off: mockOff,
+  getSelected: mockGetSelected,
 } as unknown as Editor;
 
 const createMockComponent = (id: string, type: string = 'text', traits: unknown[] = []): Component => {
@@ -61,7 +65,7 @@ describe('TraitsPanel', () => {
     const component = createMockComponent('comp-1', 'text', traits);
     
     // Mock component selection
-    mockEditor.on.mockImplementation((event, handler) => {
+    mockOn.mockImplementation((event: string, handler: (...args: unknown[]) => void) => {
       if (event === 'component:selected') {
         setTimeout(() => handler(component), 0);
       }
@@ -80,7 +84,7 @@ describe('TraitsPanel', () => {
       ];
       const component = createMockComponent('comp-1', 'link', traits);
       
-      mockEditor.on.mockImplementation((event, handler) => {
+      mockOn.mockImplementation((event: string, handler: (...args: unknown[]) => void) => {
         if (event === 'component:selected') {
           setTimeout(() => handler(component), 0);
         }
@@ -104,7 +108,7 @@ describe('TraitsPanel', () => {
       ];
       const component = createMockComponent('comp-1', 'link', traits);
       
-      mockEditor.on.mockImplementation((event, handler) => {
+      mockOn.mockImplementation((event: string, handler: (...args: unknown[]) => void) => {
         if (event === 'component:selected') {
           setTimeout(() => handler(component), 0);
         }
@@ -129,7 +133,7 @@ describe('TraitsPanel', () => {
       ];
       const component = createMockComponent('comp-1', 'input', traits);
       
-      mockEditor.on.mockImplementation((event, handler) => {
+      mockOn.mockImplementation((event: string, handler: (...args: unknown[]) => void) => {
         if (event === 'component:selected') {
           setTimeout(() => handler(component), 0);
         }
@@ -153,7 +157,7 @@ describe('TraitsPanel', () => {
       ];
       const component = createMockComponent('comp-1', 'input', traits);
       
-      mockEditor.on.mockImplementation((event, handler) => {
+      mockOn.mockImplementation((event: string, handler: (...args: unknown[]) => void) => {
         if (event === 'component:selected') {
           setTimeout(() => handler(component), 0);
         }
@@ -178,7 +182,7 @@ describe('TraitsPanel', () => {
       ];
       const component = createMockComponent('comp-1', 'image', traits);
       
-      mockEditor.on.mockImplementation((event, handler) => {
+      mockOn.mockImplementation((event: string, handler: (...args: unknown[]) => void) => {
         if (event === 'component:selected') {
           setTimeout(() => handler(component), 0);
         }
@@ -202,7 +206,7 @@ describe('TraitsPanel', () => {
       ];
       const component = createMockComponent('comp-1', 'image', traits);
       
-      mockEditor.on.mockImplementation((event, handler) => {
+      mockOn.mockImplementation((event: string, handler: (...args: unknown[]) => void) => {
         if (event === 'component:selected') {
           setTimeout(() => handler(component), 0);
         }
@@ -227,7 +231,7 @@ describe('TraitsPanel', () => {
       ];
       const component = createMockComponent('comp-1', 'text', traits);
       
-      mockEditor.on.mockImplementation((event, handler) => {
+      mockOn.mockImplementation((event: string, handler: (...args: unknown[]) => void) => {
         if (event === 'component:selected') {
           setTimeout(() => handler(component), 0);
         }
@@ -251,7 +255,7 @@ describe('TraitsPanel', () => {
       ];
       const component = createMockComponent('comp-1', 'text', traits);
       
-      mockEditor.on.mockImplementation((event, handler) => {
+      mockOn.mockImplementation((event: string, handler: (...args: unknown[]) => void) => {
         if (event === 'component:selected') {
           setTimeout(() => handler(component), 0);
         }
@@ -281,7 +285,7 @@ describe('TraitsPanel', () => {
       ];
       const component = createMockComponent('comp-1', 'text', traits);
       
-      mockEditor.on.mockImplementation((event, handler) => {
+      mockOn.mockImplementation((event: string, handler: (...args: unknown[]) => void) => {
         if (event === 'component:selected') {
           setTimeout(() => handler(component), 0);
         }
@@ -302,7 +306,7 @@ describe('TraitsPanel', () => {
       ];
       const component = createMockComponent('comp-1', 'text', traits);
       
-      mockEditor.on.mockImplementation((event, handler) => {
+      mockOn.mockImplementation((event: string, handler: (...args: unknown[]) => void) => {
         if (event === 'component:selected') {
           setTimeout(() => handler(component), 0);
         }
@@ -330,7 +334,7 @@ describe('TraitsPanel', () => {
       ];
       const component = createMockComponent('comp-1', 'image', traits);
       
-      mockEditor.on.mockImplementation((event, handler) => {
+      mockOn.mockImplementation((event: string, handler: (...args: unknown[]) => void) => {
         if (event === 'component:selected') {
           setTimeout(() => handler(component), 0);
         }
@@ -353,7 +357,7 @@ describe('TraitsPanel', () => {
       ];
       const component = createMockComponent('comp-1', 'button', traits);
       
-      mockEditor.on.mockImplementation((event, handler) => {
+      mockOn.mockImplementation((event: string, handler: (...args: unknown[]) => void) => {
         if (event === 'component:selected') {
           setTimeout(() => handler(component), 0);
         }
@@ -373,7 +377,7 @@ describe('TraitsPanel', () => {
       ];
       const component = createMockComponent('comp-1', 'text', traits);
       
-      mockEditor.on.mockImplementation((event, handler) => {
+      mockOn.mockImplementation((event: string, handler: (...args: unknown[]) => void) => {
         if (event === 'component:selected') {
           setTimeout(() => handler(component), 0);
         }
@@ -393,7 +397,7 @@ describe('TraitsPanel', () => {
       ];
       const component = createMockComponent('comp-1', 'text', traits);
       
-      mockEditor.on.mockImplementation((event, handler) => {
+      mockOn.mockImplementation((event: string, handler: (...args: unknown[]) => void) => {
         if (event === 'component:selected') {
           setTimeout(() => handler(component), 0);
         } else if (event === 'component:deselected') {
@@ -407,7 +411,7 @@ describe('TraitsPanel', () => {
       expect(screen.getByText('Content')).toBeInTheDocument();
       
       // Then deselect
-      mockEditor.on.mockImplementation((event, handler) => {
+      mockOn.mockImplementation((event: string, handler: (...args: unknown[]) => void) => {
         if (event === 'component:deselected') {
           setTimeout(() => handler(), 0);
         }
@@ -426,7 +430,7 @@ describe('TraitsPanel', () => {
       ];
       const component = createMockComponent('comp-1', 'text', traits);
       
-      mockEditor.on.mockImplementation((event, handler) => {
+      mockOn.mockImplementation((event: string, handler: (...args: unknown[]) => void) => {
         if (event === 'component:selected') {
           setTimeout(() => handler(component), 0);
         }
@@ -445,7 +449,7 @@ describe('TraitsPanel', () => {
       ];
       const component = createMockComponent('comp-1', 'image', traits);
       
-      mockEditor.on.mockImplementation((event, handler) => {
+      mockOn.mockImplementation((event: string, handler: (...args: unknown[]) => void) => {
         if (event === 'component:selected') {
           setTimeout(() => handler(component), 0);
         }
@@ -465,7 +469,7 @@ describe('TraitsPanel', () => {
       ];
       const component = createMockComponent('comp-1', 'input', traits);
       
-      mockEditor.on.mockImplementation((event, handler) => {
+      mockOn.mockImplementation((event: string, handler: (...args: unknown[]) => void) => {
         if (event === 'component:selected') {
           setTimeout(() => handler(component), 0);
         }
@@ -488,7 +492,7 @@ describe('TraitsPanel', () => {
       ];
       const component = createMockComponent('comp-1', 'button', traits);
       
-      mockEditor.on.mockImplementation((event, handler) => {
+      mockOn.mockImplementation((event: string, handler: (...args: unknown[]) => void) => {
         if (event === 'component:selected') {
           setTimeout(() => handler(component), 0);
         }
